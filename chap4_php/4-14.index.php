@@ -26,12 +26,8 @@
     </ol>
     <H2>
         <?php
-        if (isset($_GET['id'])) {
-            echo $id = $_GET['id'];
-        } else {
-            echo "welcome";
-        }
-        ?>
+            echo $_GET['id'] ?? "Welcome";
+        ?> 
 
 
     </h2>
