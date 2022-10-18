@@ -1,8 +1,8 @@
 <?php
     $conn = mysqli_connect('localhost:13306','root','koreait','opentutorials');
     $filtered = array(
-        'title'=> mysqli_real_escape_string($conn, $_POST['title']),
-        'description' => mysqli_real_escape_string($conn ,$_POST['description'])
+        'title' => ($_POST['title']),
+        'description' => ($_POST['description'])
     );
     $sql = "
     INSERT INTO topic
@@ -13,7 +13,8 @@
             NOW()
             )
             ";
-            $result = mysqli_query($conn, $sql);
+            
+            $result = mysqli_multi_query($conn , $sql);
             if( $result == false){
                 echo '저장실패';
                 error_log(mysqli_error($conn));
